@@ -1,0 +1,274 @@
+:root {
+  /*Primary*/
+  --Soft_orange: hsl(35, 77%, 62%);
+  --Soft_red: hsl(5, 85%, 63%);
+  /*Neutral*/
+  --Off_white: hsl(36, 100%, 99%);
+  --Grayish_blue: hsl(233, 8%, 79%);
+  --Dark_grayish_blue: hsl(236, 13%, 42%);
+  --Very_dark_blue: hsl(240, 100%, 5%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--Off_white);
+}
+
+a {
+  text-decoration: none;
+  color: var(--Very_dark_blue);
+}
+
+h2 {
+  color: var(--Grayish_blue);
+}
+
+p {
+  color: var(--Dark_grayish_blue);
+  line-height: 25px;
+}
+
+a:hover {
+  color: var(--Soft_red);
+}
+
+.container {
+  padding: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow-x: hidden;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background: var(--Off_white);
+  width: 100%;
+}
+
+.nav-bar nav {
+  display: flex;
+  gap: 40px;
+}
+
+.content .grid-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  grid-template-areas: "main main side" "sub_sec sub_sec side";
+  grid-gap: 1.3rem;
+}
+
+#main_area {
+  display: flex;
+  overflow: hidden;
+  grid-area: main;
+  /*display: inline-block;*/
+}
+
+.mobile {
+  display: none;
+}
+
+#main_area img {
+  width: 100%;
+}
+
+#sub_area {
+  display: flex;
+  gap: 50px;
+  grid-area: sub_sec;
+}
+
+#sub_area div {
+  display: grid;
+  justify-content: space-between;
+  font-size: 15px;
+}
+
+#sub_area h1 {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+button {
+  border: none;
+  background: var(--Soft_red);
+  color: var(--Off_white);
+  width: 150px;
+  height: 40px;
+}
+
+button:hover {
+  background: var(--Very_dark_blue);
+}
+
+#side_area {
+  display: flex;
+  gap: 0px;
+  justify-content: space-between;
+  flex-direction: column;
+  color: var(--Off_white);
+  background: var(--Very_dark_blue);
+  padding: 20px 30px;
+  grid-area: side;
+}
+
+#side_area div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#side_area h1 {
+  color: var(--Soft_orange);
+}
+
+#side_area a {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--Off_white);
+}
+
+#side_area a:hover {
+  color: var(--Soft_orange);
+}
+
+.latest {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.latest .first, .latest .second, .latest .third {
+  display: flex;
+  gap: 20px;
+}
+
+.latest img {
+  height: 150px;
+}
+
+.latest .lcontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lcontent h2 {
+  font-size: 35px;
+}
+
+.lcontent a {
+  font-weight: 800;
+  font-size: 1.1em;
+}
+
+.content {
+  display: grid;
+  gap: 50px;
+}
+
+.side-nav {
+  display: flex;
+}
+
+.ham-nav {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.side-nav .close {
+  display: none;
+  position: absolute;
+  font-size: 30px;
+  left: 90%;
+  top: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 1040px) {
+  .container {
+    padding: 50px 20px;
+  }
+  .nav-bar nav {
+    display: none;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .content .grid-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  #main_area,
+  #sub_area,
+  #side_area {
+    flex-direction: column;
+    /*max-width: 100px;
+    min-width: 30px;*/
+  }
+  #sub_area {
+    gap: 20px;
+  }
+  #sub_area div {
+    grid-gap: 20px;
+  }
+  #side_area div {
+    margin: 10px 0;
+  }
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .latest {
+    display: grid;
+    grid-template-columns: none;
+    grid-gap: 20px;
+  }
+  .ham-nav {
+    display: block;
+  }
+  .side-nav {
+    position: fixed;
+    justify-content: right;
+    background: rgba(0, 0, 0, 0.5333333333);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+  .side-nav div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #cac9c9;
+    width: 60%;
+    padding: 0 20px;
+    gap: 20px;
+  }
+  .side-nav div a {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .side-nav .close {
+    display: block;
+  }
+}/*# sourceMappingURL=style.css.map */
